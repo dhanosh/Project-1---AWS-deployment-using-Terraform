@@ -59,7 +59,7 @@ resource "aws_subnet" "P1-App-Priv-Subnet" {
   }
 }
 
-#Private subnet for App Server
+#Private subnet for RDS
 resource "aws_subnet" "P1-DB-Priv-Subnet" {
   count                   = length(var.az)
   vpc_id                  = aws_vpc.P1-VPC.id
