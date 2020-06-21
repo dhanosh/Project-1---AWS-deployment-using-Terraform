@@ -1,74 +1,72 @@
-#VPC ARN
-output "vpc_Arn" {
-  value       = aws_vpc.P1-VPC.arn
-  description = "VPC ARN : "
-}
-
 #VPC ID
 output "vpc_id" {
   value       = aws_vpc.P1-VPC.id
   description = "VPC ID : "
 }
 
-#Public Subnet ARN
-output "public_subnet_arn" {
-  value       = aws_subnet.P1-Pub-Subnet.arn
-  description = "Public Subnet ARN : "
+#Public Subnet-1 ID
+output "public_subnet-1_id" {
+  value       = aws_subnet.P1-Pub-Subnet[0].id
+  description = "Public Subnet-1 ID : "
 }
 
-#Public Subnet ID
-output "public_subnet_id" {
-  value       = aws_subnet.P1-Pub-Subnet.id
-  description = "Public Subnet ID : "
+#Public Subnet-2 ID
+output "public_subnet-2_id" {
+  value       = aws_subnet.P1-Pub-Subnet[1].id
+  description = "Public Subnet-1 ID : "
 }
 
-#Web Server Subnet arn
-output "web_Server_subnet_arn" {
-  value       = aws_subnet.P1-Web-Priv-Subnet.arn
-  description = "Web Server Subnet ARN : "
+#Web Server Subnet-1 ID
+output "web_server_subnet-1_id" {
+  value       = aws_subnet.P1-Web-Priv-Subnet[0].id
+  description = "Web Server Subnet-1 ID : "
 }
 
-#Web Server Subnet ID
-output "web_server_subnet_id" {
-  value       = aws_subnet.P1-Web-Priv-Subnet.id
-  description = "Web Server Subnet ID : "
+#Web Server Subnet-2 ID
+output "web_server_subnet-2_id" {
+  value       = aws_subnet.P1-Web-Priv-Subnet[1].id
+  description = "Web Server Subnet-1 ID : "
 }
 
-#Internal Load Balncer arn
-output "internallb_priv_subnet_arn" {
-  value       = aws_subnet.P1-IntLB-Priv-Subnet.arn
-  description = "Internal LoadBalancer ARN : "
+#Internal Load Balancer Subnet-1 ID
+output "internallb_priv_subnet-1_id" {
+  value       = aws_subnet.P1-IntLB-Priv-Subnet[0].id
+  description = "Internal Loadbalancer Subnet-1 ID :"
 }
 
-#Internal Load Balancer ID
-output "internallb_priv_subnet_id" {
-  value       = aws_subnet.P1-IntLB-Priv-Subnet.id
-  description = "Internal Loadbalancer ID :"
+#Internal Load Balancer Subnet-2 ID
+output "internallb_priv_subnet-2_id" {
+  value       = aws_subnet.P1-IntLB-Priv-Subnet[1].id
+  description = "Internal Loadbalancer Subnet-1 ID :"
 }
 
-#APP Server Subnet arn
-output "app_server_subnet_arn" {
-  value       = aws_subnet.P1-App-Priv-Subnet.arn
-  description = "App Server Subnet ARN : "
+#APP Server Subnet-1 ID
+output "app_server_subnet-1_id" {
+  value       = aws_subnet.P1-App-Priv-Subnet[0].id
+  description = "App Server Subnet-1 ID : "
 }
 
-#APP Server Subnet ID
-output "app_server_subnet_id" {
-  value       = aws_subnet.P1-App-Priv-Subnet.id
-  description = "App Server Subnet ID : "
+#APP Server Subnet-2 ID
+output "app_server_subnet-2_id" {
+  value       = aws_subnet.P1-App-Priv-Subnet[1].id
+  description = "App Server Subnet-1 ID : "
 }
 
-#RDS Subnet arn
-output "rds_subnet_arn" {
-  value       = aws_subnet.P1-DB-Priv-Subnet.arn
-  description = "RDS Subnet ARN : "
+#RDS Subnet-1 ID
+output "rds_subnet-1_id" {
+  value       = aws_subnet.P1-DB-Priv-Subnet[0].id
+  description = "RDS Server Subnet-1 ID : "
 }
 
-#RDS Subnet ID
-output "rds_subnet_id" {
-  value       = aws_subnet.P1-DB-Priv-Subnet.id
-  description = "RDS Server Subnet ID : "
+#RDS Subnet-2 ID
+output "rds_subnet-2_id" {
+  value       = aws_subnet.P1-DB-Priv-Subnet[1].id
+  description = "RDS Server Subnet-1 ID : "
 }
 
 
+output "internet_gateway_id" {
+  value       = aws_internet_gateway.P1-IG.id
+  description = "Internet Gateway ID :"
+}
 
