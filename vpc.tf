@@ -12,7 +12,7 @@ resource "aws_vpc" "P1-VPC" {
 
 #Internet Gateway
 resource "aws_internet_gateway" "P1-IG" {
-  vpc = aws_vpc.P1-VPC.id
+  vpc_id = aws_vpc.P1-VPC.id
 
   tags = {
     Name    = "P1-Internet Gateway"

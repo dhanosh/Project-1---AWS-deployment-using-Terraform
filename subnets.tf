@@ -46,7 +46,7 @@ resource "aws_subnet" "P1-IntLB-Priv-Subnet" {
 
 #Private subnet for App Server
 resource "aws_subnet" "P1-App-Priv-Subnet" {
-  count                   = lenght(var.az)
+  count                   = length(var.az)
   vpc_id                  = aws_vpc.P1-VPC.id
   availability_zone       = element(var.az, count.index)
   cidr_block              = element(var.priv-app-sub-cidr, count.index)
