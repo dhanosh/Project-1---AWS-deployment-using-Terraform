@@ -6,7 +6,7 @@ output "VPC_ID" {
 
 #Internet Gateway ID
 output "Internet_Gatway" {
-  value       = aws_internet_gateway.P1-VPC.id
+  value       = aws_internet_gateway.P1-IG.id
   description = "Outputting Internet Gateway ID"
 }
 

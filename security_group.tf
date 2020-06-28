@@ -8,18 +8,18 @@ resource "aws_security_group" "P1-Bastion-Host-SG" {
     description = "Inbound traffic from internet to port 22 of Bastion Host"
     from_port   = var.sg-ports[0]
     to_port     = var.sg-ports[0]
-    cidr_block  = ["0.0.0.0/0"]
+    cidr_blocks = ["0.0.0.0/0"]
     protocol    = "tcp"
   }
   egress {
-    from_port  = var.sg-ports[0]
-    to_port    = var.sg-ports[0]
-    cidr_block = ["0.0.0.0/0"]
-    protocol   = "-1"
+    from_port   = 0
+    to_port     = 0
+    cidr_blocks = ["0.0.0.0/0"]
+    protocol    = "-1"
   }
 
   tags = {
-    Name    = "P1-Internet Gateway"
+    Name    = "P1-Bastion Host SG"
     Purpose = "Implement AWS infrastructure to AWS using Terraform"
     Project = "P1"
   }
