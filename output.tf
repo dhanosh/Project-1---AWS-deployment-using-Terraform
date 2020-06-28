@@ -69,3 +69,51 @@ output "RDS_Private_Subnet_2" {
   value       = aws_subnet.P1-DB-Priv-Subnet[1].id
   description = "Outputting RDS Private Subnet 2 ID"
 }
+
+#Public IP of Bastion Host1
+output "Bastion_Host_1_Public_IP" {
+  value       = aws_instance.P1-Bastion-Host[0].public_ip
+  description = "Public IP of Bastion Hos1t"
+}
+
+#Public DNS of Bastion Host1
+output "Bastion_Host_1_Public_DNS" {
+  value       = aws_instance.P1-Bastion-Host[0].public_dns
+  description = "Public DNS of Bastion Host1"
+}
+
+#Public IP of Bastion Host2
+output "Bastion_Host_2_Public_IP" {
+  value       = aws_instance.P1-Bastion-Host[1].public_ip
+  description = "Public IP of Bastion Host2"
+}
+
+#Public DNS of Bastion Host2
+output "Bastion_Host_2_Public_DNS" {
+  value       = aws_instance.P1-Bastion-Host[1].public_dns
+  description = "Public DNS of Bastion Host2"
+}
+
+#EIP1 ID
+output "NAT_Gateway1_EIP_ID" {
+  value       = aws_eip.P1-Eip-NatGateway[0].id
+  description = "NAT Gateway1 EIP ID"
+}
+
+#EIP1 Public IP Address
+output "NAT_Gateway1_EIP_Public_Address" {
+  value       = aws_eip.P1-Eip-NatGateway[0].public_ip
+  description = "NAT Gateway1 EIP Public IP address"
+}
+#EIP2 ID
+output "NAT_Gateway2_EIP_ID" {
+  value       = aws_eip.P1-Eip-NatGateway[1].id
+  description = "NAT Gateway2 EIP ID"
+}
+
+#EIP2 Public IP Address
+output "NAT_Gateway2_EIP_Public_Address" {
+  value       = aws_eip.P1-Eip-NatGateway[1].public_ip
+  description = "NAT Gateway2 EIP Public IP address"
+}
+
