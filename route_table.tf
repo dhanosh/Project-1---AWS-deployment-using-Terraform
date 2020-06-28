@@ -19,7 +19,7 @@ resource "aws_route_table_association" "P1-Pub-RT-Association" {
   subnet_id      = aws_subnet.P1-Pub-Subnet[count.index].id
 }
 
-#Private Route Table 1
+#Private Route Table
 resource "aws_route_table" "P1-Priv-RT" {
   count  = length(var.az)
   vpc_id = aws_vpc.P1-VPC.id

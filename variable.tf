@@ -1,3 +1,4 @@
+#Initial Configurations
 variable "region" {
   default = "us-west-1"
 }
@@ -19,6 +20,7 @@ variable "az" {
   default = ["us-west-1b", "us-west-1c"]
 }
 
+#Subnets
 variable "pub_subnet_cidr" {
   type    = list(string)
   default = ["10.0.1.0/24", "10.0.2.0/24"]
@@ -44,7 +46,16 @@ variable "priv-db-sub-cidr" {
   default = ["10.0.9.0/24", "10.0.10.0/24"]
 }
 
+#Instance
 variable "bastion-host-instance-type" {
+  default = "t2.micro"
+}
+
+variable "web-server-instance-type" {
+  default = "t2.micro"
+}
+
+variable "app-server-instance-type" {
   default = "t2.micro"
 }
 
@@ -55,4 +66,8 @@ variable "key-pair-path" {
 variable "sg-ports" {
   type    = list(string)
   default = ["22", "80", "8080", "443"]
+}
+
+variable "WEB-Server-user-data-path" {
+default = "web_userdata.sh"
 }

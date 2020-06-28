@@ -38,7 +38,7 @@ resource "aws_subnet" "P1-IntLB-Priv-Subnet" {
   map_public_ip_on_launch = "false"
 
   tags = {
-    Name    = "P1-ExtLB Private Subnet ${count.index + 1}"
+    Name    = "P1-InternalLB Private Subnet ${count.index + 1}"
     Purpose = "Implement AWS infrastructure to AWS using Terraform"
     Project = "P1"
   }
