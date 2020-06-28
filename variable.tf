@@ -44,3 +44,15 @@ variable "priv-db-sub-cidr" {
   default = ["10.0.9.0/24", "10.0.10.0/24"]
 }
 
+variable "bastion-host-instance-type" {
+  default = "t2.micro"
+}
+
+variable "key-pair-path" {
+  default = "ec2sshkey.pub"
+}
+
+variable "sg-ports" {
+  type    = list(string)
+  default = ["22", "80", "8080", "443"]
+}
