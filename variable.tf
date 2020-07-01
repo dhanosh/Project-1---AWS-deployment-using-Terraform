@@ -69,5 +69,5 @@ variable "sg-ports" {
 }
 
 variable "WEB-Server-user-data-path" {
-default = "web_userdata.sh"
+  default = "web_userdata.sh"
 }
