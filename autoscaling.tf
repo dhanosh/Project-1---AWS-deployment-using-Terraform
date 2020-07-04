@@ -2,7 +2,7 @@
 resource "aws_autoscaling_group" "P1-WEB-Server-auscaling" {
   name                      = "WEB-Server-AutoScaling-Group"
   max_size                  = 4
-  min_size                  = lenght(var.az)
+  min_size                  = length(var.az)
   desired_capacity          = length(var.az)
   health_check_grace_period = 300
   health_check_type         = "ELB"

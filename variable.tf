@@ -71,3 +71,7 @@ variable "sg-ports" {
 variable "WEB-Server-user-data-path" {
   default = "web_userdata.sh"
 }
+
+variable "s3-lb-log-policy-path" {
+default = "s3_lb_log_policy.txt"
+}
