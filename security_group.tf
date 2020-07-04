@@ -55,7 +55,7 @@ resource "aws_security_group" "P1-ExtLB-SG" {
 #Security Group for WEB Servers
 resource "aws_security_group" "P1-WEB-Server-SG" {
   name        = "WEB Server Security group"
-  description = "Allow Inbound traffic from Load Balancer and Bastion Host to WEB Servers"
+  description = "Allow Inbound traffic from External Load Balancer and Bastion Host to WEB Servers"
   vpc_id      = aws_vpc.P1-VPC.id
 
   ingress {
@@ -88,5 +88,55 @@ resource "aws_security_group" "P1-WEB-Server-SG" {
   }
 }
 
+#Security Group for Internal Load Balancer
+resource "aws_security_group" "P1-IntLB-SG" {
+  name        = "Internal LB Security Group"
+  description = "Allow inbound 80 from WEB Server"
+  vpc_id      = aws_vpc.P1-VPC.id
+
+  ingress {
+    description     = "Inbound traffic from WEB server to Internal LB"
+    to_port         = var.sg-ports[1]
+    from_port       = var.sg-ports[1]
+    protocol        = "tcp"
+    security_groups = [aws_security_group.P1-WEB-Server-SG.id]
+  }
+
+  egress {
+    to_port     = 0
+    from_port   = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+}
+
+#Security group for App server
+resource "aws_security_group" "P1-APP-Server-SG" {
+  name        = "APP Server Security group"
+  description = "Allow Inbound traffic from Internal Load Balancer and Bastion Host to WEB Servers"
+  vpc_id      = aws_vpc.P1-VPC.id
+
+  ingress {
+    description     = "Allow inbound traffic through port 80 from Internal LB"
+    to_port         = var.sg-ports[1]
+    from_port       = var.sg-ports[1]
+    protocol        = "tcp"
+    security_groups = [aws_security_group.P1-IntLB-SG.id]
+  }
+
+  ingress {
+    to_port         = var.sg-ports[0]
+    from_port       = var.sg-ports[0]
+    protocol        = "tcp"
+    security_groups = [aws_security_group.P1-Bastion-Host-SG.id]
+  }
+
+  egress {
+    to_port     = 0
+    from_port   = 0
+    protocol     = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+}
 
 
