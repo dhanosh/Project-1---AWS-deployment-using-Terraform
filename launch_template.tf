@@ -31,8 +31,9 @@ resource "aws_launch_template" "P1-WEB-Server-Launch-Template" {
 resource "aws_launch_template" "P1-APP-Server-Launch-Template" {
   name        = "LaunchTemplate-APP_Server"
   description = "This template will be used to launch APP Servers"
-  #iam_instance_profile {
-  #}
+  iam_instance_profile {
+    name = P1-APP-Instance-Profile
+  }
   image_id               = data.aws_ami.APP-Server-Ami-Data.id
   instance_type          = var.app-server-instance-type
   key_name               = aws_key_pair.P1-Key-Pair.key_name
