@@ -7,7 +7,7 @@ resource "aws_lb" "P1-ExtLB" {
   security_groups                  = [aws_security_group.P1-ExtLB-SG.id]
   enable_cross_zone_load_balancing = false
   access_logs {
-    bucket  = aws_s3_bucket.P1-LB-logs.bucket
+    bucket  = aws_s3_bucket.P1-LB-Logs-Bucket.bucket
     prefix  = "External-LB-Logs"
     enabled = true
   }
@@ -26,7 +26,7 @@ resource "aws_lb" "P1-IntLB" {
   security_groups    = [aws_security_group.P1-IntLB-SG.id]
   subnets            = [aws_subnet.P1-IntLB-Priv-Subnet[0].id, aws_subnet.P1-IntLB-Priv-Subnet[1].id]
   access_logs {
-    bucket  = aws_s3_bucket.P1-LB-logs.bucket
+    bucket  = aws_s3_bucket.P1-LB-Logs-Bucket.bucket
     prefix  = "InternalLB-Logs"
     enabled = true
   }

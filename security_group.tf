@@ -134,7 +134,7 @@ resource "aws_security_group" "P1-APP-Server-SG" {
   egress {
     to_port     = 0
     from_port   = 0
-    protocol     = "-1"
+    protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
 }

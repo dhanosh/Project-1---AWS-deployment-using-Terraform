@@ -80,4 +80,10 @@ variable "s3-lb-log-policy-path" {
   default = "s3_lb_log_policy.txt"
 }
 
+variable "app-iam-role-path" {
+  default = "app_iam_role.txt"
+}
 
+variable "app-iam-role-policy-path" {
+  default = "app_iam_role_policy.txt"
+}
